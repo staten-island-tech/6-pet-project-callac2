@@ -19,7 +19,7 @@ class Interact:
 class Interact:
         def __init__(self, pet, happiness):
             self.pet = pet
-            self.happiness = happiness  # double underscore means "private"
+            self.happiness = happiness 
 
         def increase(self, amount):
             self.happiness += amount
@@ -27,9 +27,24 @@ class Interact:
         def show_happy_level(self):
           print(f"{self.pet} has {self.happiness}")
 Max = Interact("Max", 100)
-Max.increase(12)
+food = input("Do you want to feed your pet, Max?")
+while food == ('Yes'):
+    Max.increase(20)
+    print(Max.__dict__)
+    print("Max's happiness increased 40 points!!!!")
+    continue_feeding = input("do you want to keep giving Max food?")    
+    if continue_feeding == ('Yes'):
+        Max.increase(20)
+        print("Yay, Max's happiness raised another 40 points!")
+        print(Max.__dict__)
 
-print(Max.__dict__)
+    else:
+        print(Max.__dict__)
+
+        print("Okay, Max is done eating now. He is happier!!!!")
+        break
+
+
       
 
 """ Max = Pet("Max", 1/100, ["blue eyes"])
@@ -47,17 +62,4 @@ def happy_level():
 
 
 
-""" ''' class BankAccount:
-    def __init__(self, owner, balance):
-        self.owner = owner
-        self.__balance = balance  # double underscore means "private"
-
-    def deposit(self, amount):
-        self.__balance += amount
-
-    def show_balance(self):
-        print(f"{self.owner} has ${self.__balance}")
-Bob = BankAccount("Bob", 100)
-Bob.deposit(12)
-
-print(Bob.__dict__) """
+""" 
